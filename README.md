@@ -1,2 +1,3 @@
 # idle-run
-📕
+
+Test animations.
