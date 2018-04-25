@@ -5,6 +5,8 @@ class KeyboardManager {
         this.listenHolds()
 
         this.keyUpListeners = {}
+
+        this.anyKeyPressed = false // for anime idle detect
     }
 
     static instance(...args) {
@@ -59,12 +61,18 @@ class KeyboardManager {
     }
 
     checkHoldActionExecute() {
+        let anyKeyPressed = false
+
         let keys = Object.keys(this.holdActions)
         for (let i = keys.length - 1; i >= 0; i--) {
             let k = keys[i]
             if (this.keydowns[k]) {
+                anyKeyPressed = true
+
                 this.holdActions[k]()
             }
         }
+
+        this.anyKeyPressed = anyKeyPressed
     }
 }

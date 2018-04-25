@@ -10,9 +10,8 @@ for (let i = 1; i <= 11; i++) {
     images[name] = path
 }
 
-log(images)
-
 ImageLoader.instance().loadImages(images, function() {
-    log('image loaded')
-    log(ImageLoader.instance().getImageByName('idle_2'))
+    let sceneManager = SceneManager.instance('#id-canvas')
+    sceneManager.loadScene(new GameScene())
+    sceneManager.startRunloop()
 })

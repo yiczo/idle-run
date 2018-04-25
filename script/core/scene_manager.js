@@ -1,8 +1,8 @@
 class SceneManager {
-    constructor() {
+    constructor(canvasSelector) {
         this.scene = null
 
-        this.canvas = document.querySelector('#id-canvas')
+        this.canvas = document.querySelector(canvasSelector)
         this.context = this.canvas.getContext('2d')
     }
 
